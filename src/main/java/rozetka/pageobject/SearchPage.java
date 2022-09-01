@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class SearchPageLogic {
+public class SearchPage {
 
     By btnCheck = By.xpath("//a[@data-id='Rozetka']");
     By setPricePick = By.xpath("//input[@formcontrolname='max']");
@@ -15,30 +15,30 @@ public class SearchPageLogic {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    public SearchPageLogic(WebDriver driver, WebDriverWait wait) {
+    public SearchPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
     }
 
-    public SearchPageLogic setSeller() {
+    public SearchPage setSeller() {
         driver.findElement(btnCheck).click();
         return this;
     }
 
-    public SearchPageLogic setPrice() {
+    public SearchPage setPrice() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(setPricePick));
         driver.findElement(setPricePick).clear();
         driver.findElement(setPricePick).sendKeys("100000");
         return this;
     }
 
-    public SearchPageLogic btnPriceClick() {
+    public SearchPage btnPriceClick() {
         driver.findElement(submitBtnPrice);
         return this;
     }
 
-    public ProductPageLogic discountProductClick() {
+    public ProductPage discountProductClick() {
         driver.findElement(discountProductBtn).click();
-        return new ProductPageLogic(driver,wait);
+        return new ProductPage(driver,wait);
     }
 }

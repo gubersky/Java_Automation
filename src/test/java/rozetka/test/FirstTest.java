@@ -2,8 +2,8 @@ package rozetka.test;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import rozetka.pageobject.MainPageLogic;
-import rozetka.pageobject.ProductPageLogic;
+import rozetka.pageobject.MainPage;
+import rozetka.pageobject.ProductPage;
 import rozetka.testbase.TestBase;
 
 public class FirstTest extends TestBase {
@@ -11,10 +11,10 @@ public class FirstTest extends TestBase {
     @Test
     public void test() {
 
-        new MainPageLogic(driver, wait)
+        new MainPage(driver, wait)
                 .btnMenuClick()
                 .btnPickClick()
                 .setSeller().setPrice().btnPriceClick().discountProductClick();
-        Assert.assertTrue( new ProductPageLogic(driver, wait).discountLabelDisplayed());
+        Assert.assertTrue( new ProductPage(driver, wait).discountLabelDisplayed());
     }
 }

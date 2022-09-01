@@ -1,19 +1,15 @@
 package rozetka.testbase;
 
-import eldorado.pageobject.CartPage;
-import eldorado.pageobject.MainPage;
-import eldorado.pageobject.ProductPage;
-import eldorado.pageobject.SearchPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.asserts.SoftAssert;
-import rozetka.pageobject.MainPageLogic;
-import rozetka.pageobject.PickPageLogic;
-import rozetka.pageobject.ProductPageLogic;
-import rozetka.pageobject.SearchPageLogic;
+import rozetka.pageobject.MainPage;
+import rozetka.pageobject.PickPage;
+import rozetka.pageobject.ProductPage;
+import rozetka.pageobject.SearchPage;
 
 import java.time.Duration;
 
@@ -21,10 +17,10 @@ public class TestBase {
     protected WebDriver driver;
     protected WebDriverWait wait;
 
-    protected MainPageLogic mainPageLogic;
-    protected PickPageLogic pickPageLogic;
-    protected ProductPageLogic productPageLogic;
-    protected SearchPageLogic searchPageLogic;
+    protected MainPage mainPageLogic;
+    protected PickPage pickPageLogic;
+    protected ProductPage productPageLogic;
+    protected SearchPage searchPageLogic;
     protected SoftAssert softAssert;
 
     @BeforeMethod
@@ -36,10 +32,10 @@ public class TestBase {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://rozetka.com.ua/");
 
-        mainPageLogic = new MainPageLogic(driver,wait);
-        pickPageLogic = new PickPageLogic(driver,wait);
-        productPageLogic = new ProductPageLogic(driver,wait);
-        searchPageLogic = new SearchPageLogic(driver,wait);
+        mainPageLogic = new MainPage(driver,wait);
+        pickPageLogic = new PickPage(driver,wait);
+        productPageLogic = new ProductPage(driver,wait);
+        searchPageLogic = new SearchPage(driver,wait);
         softAssert = new SoftAssert();
     }
 

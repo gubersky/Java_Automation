@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class CartPageLogic {
+public class CartPage {
     SelenideElement titleOfProductInCart = $(By.xpath("//a [@ class=\"cart-product__title\"]"));
 
     public String titleOfProductInCart() {

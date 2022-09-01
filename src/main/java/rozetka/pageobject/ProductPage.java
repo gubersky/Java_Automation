@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ProductPageLogic {
+public class ProductPage {
 
     By discountLabel = By.xpath("//app-label[@class='main-gallery__label ng-star-inserted']");
 
@@ -12,7 +12,7 @@ public class ProductPageLogic {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    public ProductPageLogic(WebDriver driver, WebDriverWait wait) {
+    public ProductPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
     }
