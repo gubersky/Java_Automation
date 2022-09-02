@@ -1,5 +1,6 @@
 package eldorado.pageobject;
 
+import eldorado.behavior.GeneralBehavior;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -8,7 +9,7 @@ import java.util.List;
 
 import static eldorado.webelement.MainPageElement.*;
 
-public class MainPage extends PageBehavior implements eldorado.behavior.MainPage {
+public class MainPage extends GeneralBehavior implements eldorado.behavior.MainPage {
 
     private WebDriver driver;
     private WebDriverWait wait;

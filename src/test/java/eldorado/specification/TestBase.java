@@ -1,4 +1,4 @@
-package eldorado.testbase;
+package eldorado.specification;
 
 import eldorado.pageobject.CartPage;
 import eldorado.pageobject.MainPage;

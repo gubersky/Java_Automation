@@ -1,4 +1,4 @@
-package booking.testbase;
+package booking.specification;
 
 import booking.test.FirstTest;
 import booking.test.SecondTest;
