@@ -3,6 +3,8 @@ package rozetka_selenide.pajeobject;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
+import java.util.Objects;
+
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
 
@@ -25,10 +27,10 @@ public class SearchPage {
     }
 
     public String cartCounterBtn() {
-        return checkCounterBtn.attr("innerText").trim();
+        return Objects.requireNonNull(checkCounterBtn.attr("innerText")).trim();
     }
 
-    public CartPage openCart(){
+    public CartPage openCart() {
         clickCartBtn.click();
         return page(CartPage.class);
     }
