@@ -18,8 +18,8 @@ public class SecondTest extends TestBase {
         mainPage.clickOnCurrencyButton().selectCurrency(SELECT_CURRENCY_EUR.getXpath())
                 .inputValueSearchField("Milan")
                 .openDatePicker()
-                .pickStartDate(PICK_DATE_2022_08_01.getXpath())
-                .pickEndDate(PICK_DATE_2022_08_10.getXpath())
+                .pickStartDate(PICK_DATE_2022_09_01.getXpath())
+                .pickEndDate(PICK_DATE_2022_09_10.getXpath())
                 .clickSearchButton();
 
         List<WebElement> checkEurCurrency = searchPage.getPriceFromHotel();
