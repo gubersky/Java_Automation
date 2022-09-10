@@ -12,7 +12,7 @@ public class FirstTest extends TestBase {
         mainPage
                 .btnMenuClick()
                 .btnPickClick()
-                .setSeller().setPrice().btnPriceClick().discountProductClick();
+                .setSeller().setPrice("10000").btnPriceClick().discountProductClick();
         Assert.assertTrue(productPage.discountLabelDisplayed());
     }
 }

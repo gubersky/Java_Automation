@@ -25,10 +25,10 @@ public class SearchPage {
         return this;
     }
 
-    public SearchPage setPrice() {
+    public SearchPage setPrice(String value) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(setPricePick));
         driver.findElement(setPricePick).clear();
-        driver.findElement(setPricePick).sendKeys("100000");
+        driver.findElement(setPricePick).sendKeys(value);
         return this;
     }
 
