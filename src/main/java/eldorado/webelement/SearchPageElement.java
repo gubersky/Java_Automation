@@ -1,7 +1,7 @@
 package eldorado.webelement;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+
 
 public enum SearchPageElement {
 
