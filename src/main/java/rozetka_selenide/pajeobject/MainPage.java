@@ -14,8 +14,8 @@ SelenideElement openCart = $(By.xpath("//button [@class=\"header__button ng-star
 SelenideElement menuPicker = $(By.xpath("//ul[@class='menu-categories menu-categories_type_main']/li[1]"));
 
 
-    public MainPage findProductInSearchField(){
-        searchField.setValue("MD506Z/A");
+    public MainPage findProductInSearchField(String value){
+        searchField.setValue(value);
         return this;
     }
 

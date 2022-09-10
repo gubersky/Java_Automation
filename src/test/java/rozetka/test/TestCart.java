@@ -1,5 +1,6 @@
 package rozetka.test;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -9,6 +10,7 @@ import rozetka_selenide.pajeobject.MainPage;
 import rozetka_selenide.pajeobject.SearchPage;
 
 import static com.codeborne.selenide.Selenide.*;
+import static rozetka_selenide.pajeobject.CategoryPage.clickCategory;
 
 public class TestCart {
 
@@ -20,7 +22,7 @@ public class TestCart {
     @Test
     public void testProductCart(){
         new MainPage().clickOnCategory()
-                .clickOnLaptopCategory()
+                .clickOnLaptopCategory((By) clickCategory)
                 .addProduct();
         SearchPage searchPageLogic = new SearchPage();
 

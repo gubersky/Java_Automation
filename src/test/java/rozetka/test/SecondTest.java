@@ -20,7 +20,7 @@ public class SecondTest {
 
     @Test
     public void testProductCart(){
-        new MainPage().findProductInSearchField()
+        new MainPage().findProductInSearchField("Mac")
                 .openProductPage()
                 .addProductToTheCart().closeCartPopup()
                 .goToTheMainPage().openCartPage();
