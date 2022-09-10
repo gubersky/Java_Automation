@@ -1,13 +1,16 @@
 package eldorado.pageobject;
 
 
+import eldorado.behavior.GeneralBehavior;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 import static eldorado.webelement.ProductPageElement.*;
 
-public class ProductPage implements eldorado.behavior.ProductPage {
+public class ProductPage extends GeneralBehavior implements eldorado.behavior.ProductPage {
 
     private WebDriver driver;
     private WebDriverWait wait;
@@ -24,9 +27,13 @@ public class ProductPage implements eldorado.behavior.ProductPage {
     }
 
     @Override
-    public ProductPage elementIsDisplayed(By element) {
-        driver.findElement(element).isDisplayed();
-        return this;
+    public boolean elementIsDisplayed(By element) {
+       return driver.findElement(element).isDisplayed();
+    }
+
+    @Override
+    public List getWebElements(By element) {
+        return driver.findElements(element);
     }
 
     @Override
