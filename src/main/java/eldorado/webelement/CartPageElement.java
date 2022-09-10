@@ -17,11 +17,4 @@ public enum CartPageElement {
 
     }
 
-    public By getId() {
-        return By.id(xpath);
-    }
-
-    public By getName() {
-        return By.name(xpath);
-    }
 }

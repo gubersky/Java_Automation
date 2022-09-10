@@ -22,12 +22,4 @@ public enum ProductPageElement {
         return By.xpath(xpath);
 
     }
-
-    public By getId() {
-        return By.id(xpath);
-    }
-
-    public By getName() {
-        return By.name(xpath);
-    }
 }
