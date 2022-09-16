@@ -42,4 +42,9 @@ public class SearchPage extends GeneralBehavior implements eldorado.behavior.Sea
     public List getWebElements(By element) {
         return driver.findElements(element);
     }
+
+    @Override
+    public String getStringFromList(By element) {
+        return null;
+    }
 }

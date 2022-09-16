@@ -37,6 +37,11 @@ public class ProductPage extends GeneralBehavior implements eldorado.behavior.Pr
     }
 
     @Override
+    public String getStringFromList(By element) {
+        return null;
+    }
+
+    @Override
     public String getTitleOfProductNumber(By element) {
        String text = driver.findElement(element).getAttribute("innerText");
         return text;

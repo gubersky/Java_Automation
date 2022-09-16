@@ -30,6 +30,11 @@ public class MainPage extends GeneralBehavior implements eldorado.behavior.MainP
     }
 
     @Override
+    public String getStringFromList(By element) {
+        return null;
+    }
+
+    @Override
     public MainPage inputSearchValue(String value) {
         driver.findElement(SEARCH_FIELD.getXpath()).sendKeys(value);
         return this;
@@ -45,5 +50,17 @@ public class MainPage extends GeneralBehavior implements eldorado.behavior.MainP
     public SearchPage clickSearchButton() {
         driver.findElement(FIND_SEARCH_BUTTON.getXpath()).click();
         return new SearchPage(driver,wait);
+    }
+
+    @Override
+    public CartPage goToCart() {
+        driver.findElement(GO_TO_CART.getXpath()).click();
+        return new CartPage(driver, wait);
+    }
+
+    @Override
+    public MainPage clickBuyProduct() {
+        driver.findElement(BUY_BUTTON.getXpath()).click();
+        return this;
     }
 }

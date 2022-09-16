@@ -3,6 +3,8 @@ package eldorado.pageobject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static eldorado.webelement.CartPageElement.DELETE_PRODUCT_BUTTON;
+
 public class CartPage implements eldorado.behavior.CartPage {
 
     private WebDriver driver;
@@ -14,4 +16,9 @@ public class CartPage implements eldorado.behavior.CartPage {
     }
 
 
+    @Override
+    public MainPage deleteProduct() {
+        driver.findElement(DELETE_PRODUCT_BUTTON.getXpath()).click();
+        return new MainPage(driver,wait);
+    }
 }

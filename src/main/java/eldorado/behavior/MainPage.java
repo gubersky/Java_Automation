@@ -7,5 +7,7 @@ public interface MainPage {
     MainPage inputSearchValue(String value);
     MainPage deleteSearchValue();
     SearchPage clickSearchButton();
+    CartPage goToCart();
+    MainPage clickBuyProduct();
 
 }
