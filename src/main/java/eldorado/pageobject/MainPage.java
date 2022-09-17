@@ -3,11 +3,13 @@ package eldorado.pageobject;
 import eldorado.behavior.GeneralBehavior;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
 import static eldorado.webelement.MainPageElement.*;
+import static eldorado.webelement.SearchPageElement.SEARCH_TOP;
 
 public class MainPage extends GeneralBehavior implements eldorado.behavior.MainPage {
 
@@ -21,7 +23,8 @@ public class MainPage extends GeneralBehavior implements eldorado.behavior.MainP
 
     @Override
     public boolean elementIsDisplayed(By element) {
-       return driver.findElement(element).isDisplayed();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+        return driver.findElement(element).isDisplayed();
     }
 
     @Override
@@ -49,11 +52,12 @@ public class MainPage extends GeneralBehavior implements eldorado.behavior.MainP
     @Override
     public SearchPage clickSearchButton() {
         driver.findElement(FIND_SEARCH_BUTTON.getXpath()).click();
-        return new SearchPage(driver,wait);
+        return new SearchPage(driver, wait);
     }
 
     @Override
     public CartPage goToCart() {
+        wait.until(ExpectedConditions.elementToBeClickable(GO_TO_CART.getXpath()));
         driver.findElement(GO_TO_CART.getXpath()).click();
         return new CartPage(driver, wait);
     }
