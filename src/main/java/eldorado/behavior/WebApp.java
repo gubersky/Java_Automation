@@ -5,5 +5,6 @@ public interface WebApp {
     SearchPage searchPage();
     ProductPage productPage();
     CartPage cartPage();
+    SelectionPage selectionPage();
 
 }

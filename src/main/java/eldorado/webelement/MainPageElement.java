@@ -9,18 +9,22 @@ public enum MainPageElement {
     PROMOTIONAL_OFFERS("//img [@alt='promo']"),
     DELETE_SEARCH_BUTTON("//i [@class='icon-search']"),
     FIND_SEARCH_BUTTON("//img [@alt='search-button']"),
-    BUY_BUTTON("//div [@class=\"icon-cart buy-button sp valign-wrapper\"]"),
-    GO_TO_CART("//button [@class=\"basket-button\"]");
+    BUY_BUTTON("//div [@class='icon-cart buy-button sp valign-wrapper']"),
+    GO_TO_CART("//button [@class='basket-button']"),
+    CATALOG_OF_GOODS_SMARTPHONES_AND_PHONES("//div [@class='menu-mobile valign-wrapper']");
 
 
-    private final String xpath;
+    private final String path;
 
-    MainPageElement(String xpath) {
-        this.xpath = xpath;
+    MainPageElement(String path) {
+        this.path = path;
     }
 
     public By getXpath() {
-        return By.xpath(xpath);
+        return By.xpath(path);
 
+    }
+    public By getCss(){
+        return By.cssSelector(path);
     }
 }

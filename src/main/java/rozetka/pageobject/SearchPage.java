@@ -21,6 +21,7 @@ public class SearchPage {
     }
 
     public SearchPage setSeller() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(btnCheck));
         driver.findElement(btnCheck).click();
         return this;
     }
