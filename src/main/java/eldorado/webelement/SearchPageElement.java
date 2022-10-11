@@ -10,14 +10,17 @@ public enum SearchPageElement {
     SEARCH_TOP("//div [@class='search-top']");
 
 
-    private final String xpath;
+    private final String path;
 
-    SearchPageElement(String xpath) {
-        this.xpath = xpath;
+    SearchPageElement(String path) {
+        this.path = path;
     }
 
     public By getXpath() {
-        return By.xpath(xpath);
+        return By.xpath(path);
+    }
 
+    public By getCss() {
+        return By.cssSelector(path);
     }
 }

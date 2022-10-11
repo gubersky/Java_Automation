@@ -40,6 +40,6 @@ public class WebApp implements eldorado.behavior.WebApp {
 
     @Override
     public SelectionPage selectionPage() {
-        return null;
+        return new eldorado.pageobject.SelectionPage(driver,wait);
     }
 }

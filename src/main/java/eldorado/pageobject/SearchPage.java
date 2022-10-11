@@ -3,6 +3,8 @@ package eldorado.pageobject;
 import eldorado.behavior.GeneralBehavior;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -46,5 +48,12 @@ public class SearchPage extends GeneralBehavior implements eldorado.behavior.Sea
     @Override
     public String getStringFromList(By element) {
         return null;
+    }
+
+    @Override
+    public void moveToElement(By element) {
+        Actions actions = new Actions(driver);
+        WebElement saveElement = driver.findElement(element);
+        actions.moveToElement(saveElement).build().perform();
     }
 }

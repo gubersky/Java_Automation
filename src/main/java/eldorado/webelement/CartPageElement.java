@@ -8,15 +8,18 @@ public enum CartPageElement {
     DELETE_PRODUCT_BUTTON("//div [@class='icon-trash']"),
     NOTIFICATION_WRAPPER("//div [@class='notifications-wrapper']");
 
-    private final String xpath;
+    private final String path;
 
-    CartPageElement(String xpath) {
-        this.xpath = xpath;
+    CartPageElement(String path) {
+        this.path = path;
     }
 
     public By getXpath() {
-        return By.xpath(xpath);
+        return By.xpath(path);
+    }
 
+    public By getCss(){
+        return By.cssSelector(path);
     }
 
 }

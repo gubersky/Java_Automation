@@ -12,14 +12,17 @@ public enum ProductPageElement {
     CART_POPUP(" //div [@class='order-cart']");
 
 
-    private final String xpath;
+    private final String path;
 
-    ProductPageElement(String xpath) {
-        this.xpath = xpath;
+    ProductPageElement(String path) {
+        this.path = path;
     }
 
     public By getXpath() {
-        return By.xpath(xpath);
+        return By.xpath(path);
+    }
 
+    public By getCss() {
+        return By.cssSelector(path);
     }
 }
