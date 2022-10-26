@@ -4,5 +4,7 @@
 .classpath
 .project
 .settings/
-target/
-build/
+/target/
+/build/
+.reports
+.tests/
