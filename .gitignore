@@ -1,7 +1,5 @@
 /shelf/
-/workspace.xml
-.classpath
-.project
-.settings/
-.target/
-.build/
+.idea
+.gitignore
+.target
+.build
