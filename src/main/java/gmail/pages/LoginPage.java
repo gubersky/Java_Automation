@@ -6,8 +6,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage implements gmail.behavior.LoginPage {
 
-    private WebDriver driver;
-    private WebDriverWait wait;
+    private final WebDriver driver;
+    private final WebDriverWait wait;
 
     public LoginPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;

@@ -8,8 +8,8 @@ import static gmail.locators.MainPageLocators.LOGIN_BUTTON;
 
 public class MainPage implements gmail.behavior.MainPage {
 
-    private WebDriver driver;
-    private WebDriverWait wait;
+    private final WebDriver driver;
+    private final WebDriverWait wait;
 
     public MainPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;

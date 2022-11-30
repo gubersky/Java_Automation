@@ -1,4 +1,4 @@
-package eldorado.tests;
+package eldorado.test;
 
 import eldorado.config.TestBase;
 import org.testng.Assert;

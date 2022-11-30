@@ -1,4 +1,4 @@
-package eldorado.tests;
+package eldorado.test;
 
 import eldorado.config.TestBase;
 import org.testng.Assert;
@@ -15,7 +15,7 @@ public class AddProductFromSearchField extends TestBase {
         mainPage.inputSearchValue("MacBook")
                 .clickSearchButton();
 
-        searchPage.openProductInfo(1);
+        searchPage.openProductInfo(7);
 
         productPage.clickBuyProduct()
                 .elementIsDisplayed(CART_POPUP.getXpath());

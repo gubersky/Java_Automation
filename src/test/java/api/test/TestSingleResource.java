@@ -1,4 +1,4 @@
-package api.tests;
+package api.test;
 
 import api.pojo.ResponseSingleResource;
 import api.config.ApiSpec;
