@@ -6,11 +6,11 @@ import org.testng.annotations.Test;
 
 import static eldorado.locators.ProductPageElement.*;
 
-public class AddProductFromSearchField extends TestBase {
+public class TestProduct extends TestBase {
 
     @Test(priority = 1)
 
-    public void test()  {
+    public void productInCart()  {
 
         mainPage.inputSearchValue("MacBook")
                 .clickSearchButton();
