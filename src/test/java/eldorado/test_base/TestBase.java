@@ -1,4 +1,4 @@
-package eldorado.config;
+package eldorado.test_base;
 
 import eldorado.pages.*;
 import org.openqa.selenium.WebDriver;

@@ -2,7 +2,7 @@ package rozetka.test;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import rozetka.config.TestBase;
+import rozetka.test_base.TestBase;
 
 public class FirstTest extends TestBase {
 

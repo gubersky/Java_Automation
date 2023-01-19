@@ -1,4 +1,4 @@
-package booking.config;
+package booking.test_base;
 
 import booking.test.TestProduct;
 import org.testng.annotations.Test;

@@ -1,6 +1,6 @@
 package eldorado.test;
 
-import eldorado.config.TestBase;
+import eldorado.test_base.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import static eldorado.locators.MainPageElement.MAIN_LOGO;

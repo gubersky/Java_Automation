@@ -1,6 +1,6 @@
 package booking.test;
 
-import booking.config.TestBase;
+import booking.test_base.TestBase;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;

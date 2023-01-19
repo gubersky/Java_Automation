@@ -1,7 +1,7 @@
 package api.test;
 
 import api.pojo.ResponseSingleResource;
-import api.config.ApiSpec;
+import api.api_base.ApiSpec;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

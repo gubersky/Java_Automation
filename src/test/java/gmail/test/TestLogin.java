@@ -1,6 +1,6 @@
 package gmail.test;
 
-import gmail.config.TestBase;
+import gmail.test_base.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
