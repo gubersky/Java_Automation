@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public abstract class BasePage {
+public class BasePage {
 
     private WebDriver driver;
     private WebDriverWait wait;
