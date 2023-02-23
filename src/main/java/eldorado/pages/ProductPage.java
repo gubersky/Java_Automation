@@ -4,6 +4,7 @@ package eldorado.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import static eldorado.locators.ProductPageElement.*;
 
 public class ProductPage extends BasePage implements eldorado.behavior.ProductPage {

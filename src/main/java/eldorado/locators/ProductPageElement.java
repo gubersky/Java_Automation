@@ -21,8 +21,4 @@ public enum ProductPageElement {
     public By getXpath() {
         return By.xpath(path);
     }
-
-    public By getCss() {
-        return By.cssSelector(path);
-    }
 }

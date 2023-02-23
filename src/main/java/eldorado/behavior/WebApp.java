@@ -7,7 +7,4 @@ public interface WebApp {
 
     ProductPage productPage();
 
-    CartPage cartPage();
-
-    SelectionPage selectionPage();
 }

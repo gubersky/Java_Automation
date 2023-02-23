@@ -10,7 +10,7 @@ public class WebApp implements booking.behavior.WebApp {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    public WebApp(WebDriver driver, WebDriverWait wait){
+    public WebApp(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
     }
@@ -22,6 +22,6 @@ public class WebApp implements booking.behavior.WebApp {
 
     @Override
     public SearchPage searchPage() {
-        return new booking.pages.SearchPage(driver,wait);
+        return new booking.pages.SearchPage(driver, wait);
     }
 }

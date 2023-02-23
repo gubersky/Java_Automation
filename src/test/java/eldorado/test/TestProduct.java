@@ -10,7 +10,7 @@ public class TestProduct extends TestBase {
 
     @Test(priority = 1)
 
-    public void productInCart()  {
+    public void productInCart() {
 
         mainPage.inputSearchValue("MacBook")
                 .clickSearchButton();
@@ -20,7 +20,7 @@ public class TestProduct extends TestBase {
         productPage.clickBuyProduct()
                 .elementIsDisplayed(CART_POPUP.getXpath());
 
-        Assert.assertEquals(productPage.counterCart(),1);
+        Assert.assertEquals(productPage.counterCart(), 1);
         Assert.assertEquals(productPage.getTitleOfProductNumber(TITLE_OF_PRODUCT.getXpath()),
                 productPage.getTitleOfProductNumber(TITLE_OF_PRODUCT_POPUP_CART.getXpath()));
 

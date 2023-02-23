@@ -19,8 +19,4 @@ public enum SearchPageElement {
     public By getXpath() {
         return By.xpath(path);
     }
-
-    public By getCss() {
-        return By.cssSelector(path);
-    }
 }

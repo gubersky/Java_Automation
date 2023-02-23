@@ -1,7 +1,9 @@
 package eldorado.pages;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import static eldorado.locators.SearchPageElement.*;
 
 public class SearchPage extends BasePage implements eldorado.behavior.SearchPage {
@@ -16,15 +18,11 @@ public class SearchPage extends BasePage implements eldorado.behavior.SearchPage
         this.wait = wait;
     }
 
-    @Override
-    public SearchPage addProductToCart() {
-        return null;
-    }
 
     @Override
     public ProductPage openProductInfo(int numberOfElement) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(SEARCH_TOP.getXpath()));
         driver.findElements(OPEN_PRODUCT_INFO.getXpath()).get(numberOfElement).click();
-        return new ProductPage (driver,wait);
+        return new ProductPage(driver, wait);
     }
 }

@@ -17,8 +17,6 @@ public class TestBase {
     protected MainPage mainPage;
     protected SearchPage searchPage;
     protected ProductPage productPage;
-    protected CartPage cartPage;
-    protected SelectionPage selectionPage;
     protected SoftAssert softAssert;
 
 
@@ -34,8 +32,6 @@ public class TestBase {
         mainPage = new MainPage(driver, wait);
         searchPage = new SearchPage(driver, wait);
         productPage = new ProductPage(driver, wait);
-        cartPage = new CartPage(driver, wait);
-        selectionPage = new SelectionPage(driver, wait);
         softAssert = new SoftAssert();
     }
 
