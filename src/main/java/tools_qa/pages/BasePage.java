@@ -50,7 +50,7 @@ public class BasePage {
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
-    public void goToElement(By element) {
+    public void goToElement(WebElement element) {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("arguments[0].scrollIntoView();", element);
     }
