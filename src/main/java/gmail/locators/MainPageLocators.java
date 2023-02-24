@@ -1,6 +1,5 @@
 package gmail.locators;
 
-
 import org.openqa.selenium.By;
 
 public enum MainPageLocators {
