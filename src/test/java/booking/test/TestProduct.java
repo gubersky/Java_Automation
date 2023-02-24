@@ -15,7 +15,7 @@ public class TestProduct extends TestBase {
     @Test(priority = 1)
     public void firstTest() {
 
-        mainPage.clickOnLanguageButton().selectLanguage(SELECT_LANGUAGE_ENGLISH_BR.getXpath())
+        mainPage.clickOnLanguageButton().selectLanguage(SELECT_LANGUAGE_ENGLISH_BR.getLocator())
                 .inputValueSearchField("New York")
                 .openDatePicker();
         while (true) {
@@ -27,7 +27,7 @@ public class TestProduct extends TestBase {
             }
         }
 
-        mainPage.pickStartDate(PICK_DATE_2022_12_01.getXpath()).pickEndDate(PICK_DATE_2022_12_30.getXpath())
+        mainPage.pickStartDate(PICK_DATE_2022_12_01.getLocator()).pickEndDate(PICK_DATE_2022_12_30.getLocator())
                 .clickSearchButton();
 
         List<WebElement> checkCity = searchPage.getCityFromHotel();
@@ -43,11 +43,11 @@ public class TestProduct extends TestBase {
 
     @Test(priority = 1)
     public void secondTest() {
-        mainPage.clickOnCurrencyButton().selectCurrency(SELECT_CURRENCY_EUR.getXpath())
+        mainPage.clickOnCurrencyButton().selectCurrency(SELECT_CURRENCY_EUR.getLocator())
                 .inputValueSearchField("Milan")
                 .openDatePicker()
-                .pickStartDate(PICK_DATE_2022_09_01.getXpath())
-                .pickEndDate(PICK_DATE_2022_09_10.getXpath())
+                .pickStartDate(PICK_DATE_2022_09_01.getLocator())
+                .pickEndDate(PICK_DATE_2022_09_10.getLocator())
                 .clickSearchButton();
 
         List<WebElement> checkEurCurrency = searchPage.getPriceFromHotel();
@@ -56,7 +56,7 @@ public class TestProduct extends TestBase {
             Assert.assertTrue(currency.contains("€"));
         }
 
-        searchPage.clickOnCurrencyButton().selectCurrency(SELECT_CURRENCY_USD.getXpath());
+        searchPage.clickOnCurrencyButton().selectCurrency(SELECT_CURRENCY_USD.getLocator());
 
         List<WebElement> checkDollarCurrency = searchPage.getPriceFromHotel();
         for (WebElement element : checkDollarCurrency) {
@@ -64,7 +64,7 @@ public class TestProduct extends TestBase {
             Assert.assertTrue(currency.contains("$"));
         }
 
-        searchPage.clickOnCurrencyButton().selectCurrency(SELECT_CURRENCY_UAH.getXpath());
+        searchPage.clickOnCurrencyButton().selectCurrency(SELECT_CURRENCY_UAH.getLocator());
 
         List<WebElement> checkUahCurrency = searchPage.getPriceFromHotel();
         for (WebElement element : checkUahCurrency) {

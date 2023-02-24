@@ -1,11 +1,11 @@
 package booking.pages;
 
-import booking.locators.DateElement;
-import booking.locators.MainPageElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import static booking.locators.DateElement.*;
+import static booking.locators.MainPageElement.*;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ public class MainPage implements booking.behavior.MainPage {
 
     @Override
     public MainPage clickOnLanguageButton() {
-        driver.findElement(MainPageElement.LANGUAGE_BUTTON.getXpath()).click();
+        driver.findElement(LANGUAGE_BUTTON.getLocator()).click();
         return this;
     }
 
@@ -33,19 +33,19 @@ public class MainPage implements booking.behavior.MainPage {
 
     @Override
     public MainPage inputValueSearchField(String city) {
-        driver.findElement(MainPageElement.SEARCH_FIELD.getXpath()).sendKeys(city);
+        driver.findElement(SEARCH_FIELD.getLocator()).sendKeys(city);
         return this;
     }
 
     @Override
     public MainPage openDatePicker() {
-        driver.findElement(DateElement.DATE_PICKER_BUTTON.getXpath()).click();
+        driver.findElement(DATE_PICKER_BUTTON.getLocator()).click();
         return this;
     }
 
     @Override
     public MainPage clickLeftArrow() {
-        driver.findElement(DateElement.DATE_PICKER_LEFT_ARROW.getXpath()).click();
+        driver.findElement(DATE_PICKER_LEFT_ARROW.getLocator()).click();
         return this;
     }
 
@@ -63,7 +63,7 @@ public class MainPage implements booking.behavior.MainPage {
 
     @Override
     public String getMonthFromDate() {
-        List<WebElement> date = driver.findElements(DateElement.GET_MONTH_DATE.getXpath());
+        List<WebElement> date = driver.findElements(GET_MONTH_DATE.getLocator());
         for (WebElement element : date) {
             return element.getAttribute("outerText");
         }
@@ -72,7 +72,7 @@ public class MainPage implements booking.behavior.MainPage {
 
     @Override
     public MainPage clickOnCurrencyButton() {
-        driver.findElement(MainPageElement.CURRENCY_BUTTON.getXpath()).click();
+        driver.findElement(CURRENCY_BUTTON.getLocator()).click();
         return this;
     }
 
@@ -84,7 +84,7 @@ public class MainPage implements booking.behavior.MainPage {
 
     @Override
     public SearchPage clickSearchButton() {
-        driver.findElement(MainPageElement.SEARCH_BUTTON.getXpath()).click();
+        driver.findElement(SEARCH_BUTTON.getLocator()).click();
         return new SearchPage(driver, wait);
     }
 }
