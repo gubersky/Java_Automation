@@ -21,13 +21,13 @@ public class Generator extends Person {
                 return lastName = faker_eng.name().lastName();
 
             case "age":
-                return age = String.valueOf((18 + Math.random() * 80));
+                return age = String.valueOf((int) ( Math.random() * 80) + 18);
 
             case "salary":
-                return salary = String.valueOf((50 + Math.random() * 5000));
+                return salary = String.valueOf((int) ( Math.random() * 5000) + 50);
 
             case "department":
-                return department = String.valueOf(faker_eng.job());
+                return department = faker_eng.commerce().department();
 
             case "email":
                 return email = faker_eng.internet().emailAddress();
