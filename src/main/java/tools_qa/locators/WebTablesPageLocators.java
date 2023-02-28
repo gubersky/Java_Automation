@@ -20,7 +20,6 @@ public enum WebTablesPageLocators {
     // table_person
     SEARCH_FIELD(By.cssSelector("#searchBox")),
     ADD_PERSON_LIST(By.cssSelector("div[class='rt-tr-group']")),
-    //ROW = ".//ancestor::div[@class='rt-tr-group']"
     ALERT_NO_ROWS_FOUND(By.cssSelector("div[class='rt-noData']")),
     SELECT_ROWS(By.cssSelector("select[aria-label='rows per page']"));
 

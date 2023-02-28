@@ -55,4 +55,13 @@ public class BasePage {
         jse.executeScript("arguments[0].scrollIntoView();", element);
     }
 
+    public void removeFooter() {
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("document.getElementsByTagName('footer')[0].remove();");
+    }
+
+    public void removeFixedBan() {
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("document.getElementById('fixedban').style.display = 'none'");
+    }
 }
