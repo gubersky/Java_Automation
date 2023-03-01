@@ -4,9 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import java.time.Duration;
 import java.util.List;
 
@@ -63,5 +63,17 @@ public class BasePage {
     public void removeFixedBan() {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("document.getElementById('fixedban').style.display = 'none'");
+    }
+
+    public void actionDoubleClick(WebElement element) {
+        Actions action = new Actions(driver);
+        action.doubleClick(element);
+        action.perform();
+    }
+
+    public void actionRightClick(WebElement element) {
+        Actions action = new Actions(driver);
+        action.contextClick(element);
+        action.perform();
     }
 }
