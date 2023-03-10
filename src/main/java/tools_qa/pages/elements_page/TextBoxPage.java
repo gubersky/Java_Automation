@@ -7,18 +7,23 @@ import static tools_qa.locators.TextBoxPageLocators.*;
 
 import tools_qa.pages.BasePage;
 
-public class TextBoxPage extends BasePage {
+public class TextBoxPage extends BasePage implements tools_qa.contract.elements_page.TextBoxPage {
+    Generator personInfo = new Generator();
+    String fullName;
+    String email;
+    String currentAddress;
+    String permanentAddress;
 
     public TextBoxPage(WebDriver driver, String url) {
         super(driver, url);
     }
 
+    @Override
     public String[] fillAllField() {
-        Generator personInfo = new Generator();
-        String fullName = personInfo.generatePerson("fullName");
-        String email = personInfo.generatePerson("email");
-        String currentAddress = personInfo.generatePerson("currentAddress");
-        String permanentAddress = personInfo.generatePerson("permanentAddress");
+        fullName = personInfo.generatePerson("fullName");
+        email = personInfo.generatePerson("email");
+        currentAddress = personInfo.generatePerson("currentAddress");
+        permanentAddress = personInfo.generatePerson("permanentAddress");
 
         elementIsVisible(FULL_NAME.getLocator()).sendKeys(fullName);
         elementIsVisible(EMAIL.getLocator()).sendKeys(email);
@@ -29,6 +34,7 @@ public class TextBoxPage extends BasePage {
         return new String[]{fullName, email, currentAddress, permanentAddress};
     }
 
+    @Override
     public String[] checkFieldForm() {
         String fullName = elementIsPresent(CREATED_FULL_NAME.getLocator()).getText().split(":")[1];
         String email = elementIsPresent(CREATED_EMAIL.getLocator()).getText().split(":")[1];

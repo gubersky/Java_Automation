@@ -12,17 +12,17 @@ public class TestProduct extends TestBase {
 
     public void productInCart() {
 
-        mainPage.inputSearchValue("MacBook")
+        app.mainPage().inputSearchValue("MacBook")
                 .clickSearchButton();
 
-        searchPage.openProductInfo(7);
+        app.searchPage().openProductInfo(7);
 
-        productPage.clickBuyProduct()
-                .elementIsDisplayed(CART_POPUP.getXpath());
+        app.productPage().clickBuyProduct();
+        app.basePage().elementIsDisplayed(CART_POPUP.getLocator());
 
-        Assert.assertEquals(productPage.counterCart(), 1);
-        Assert.assertEquals(productPage.getTitleOfProductNumber(TITLE_OF_PRODUCT.getXpath()),
-                productPage.getTitleOfProductNumber(TITLE_OF_PRODUCT_POPUP_CART.getXpath()));
+        Assert.assertEquals(app.productPage().counterCart(), 1);
+        Assert.assertEquals(app.productPage().getTitleOfProductNumber(TITLE_OF_PRODUCT.getLocator()),
+                app.productPage().getTitleOfProductNumber(TITLE_OF_PRODUCT_POPUP_CART.getLocator()));
 
     }
 }

@@ -10,17 +10,17 @@ import java.util.List;
 
 import static tools_qa.locators.CheckBoxPageLocators.*;
 
-public class CheckBoxPage extends BasePage {
+public class CheckBoxPage extends BasePage implements tools_qa.contract.elements_page.CheckBoxPage {
 
     public CheckBoxPage(WebDriver driver, String url) {
         super(driver, url);
     }
-
+    @Override
     public void openFullList() {
         elementIsVisible(EXPAND_ALL_BUTTON.getLocator()).click();
 
     }
-
+    @Override
     public void clickRandomCheckBox() {
         List<WebElement> itemList = elementsAreVisible(LIST_OF_NAME_BOX.getLocator());
         int count = 17;
@@ -36,7 +36,7 @@ public class CheckBoxPage extends BasePage {
             }
         }
     }
-
+    @Override
     public List<String> getCheckCheckBox() {
         List<WebElement> checkList = elementsArePresent(ITEM_CHECK.getLocator());
         List<String> data = new ArrayList<>();
@@ -47,7 +47,7 @@ public class CheckBoxPage extends BasePage {
         }
         return data;
     }
-
+    @Override
     public List<String> gettextAlert() {
         List<WebElement> alertTextList = elementsAreVisible(TEXT_ALERT.getLocator());
         List<String> data = new ArrayList<>();

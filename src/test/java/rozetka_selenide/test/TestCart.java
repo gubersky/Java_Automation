@@ -1,4 +1,4 @@
-package rozetka.test;
+package rozetka_selenide.test;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;

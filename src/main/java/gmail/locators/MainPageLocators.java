@@ -4,15 +4,15 @@ import org.openqa.selenium.By;
 
 public enum MainPageLocators {
 
-    LOGIN_BUTTON("//a[contains(@class, 'button--mobile-before')]");
+    LOGIN_BUTTON(By.xpath("//a[contains(@class, 'button--mobile-before')]"));
 
-    private final String path;
+    private final By path;
 
-    MainPageLocators(String path) {
+    MainPageLocators(By path) {
         this.path = path;
     }
 
-    public By getXpath() {
-        return By.xpath(path);
+    public By getLocator() {
+        return path;
     }
 }

@@ -5,20 +5,20 @@ import org.openqa.selenium.By;
 public enum ProductPageElement {
 
 
-    BUY_BUTTON("//div [@class='buy-button sp valign-wrapper']"),
-    COUNTER_CART("//div [@class='counter counter-cart active']"),
-    TITLE_OF_PRODUCT("//div [@class='product-name']"),
-    TITLE_OF_PRODUCT_POPUP_CART("//div [@class='product-title sp']"),
-    CART_POPUP(" //div [@class='order-cart']");
+    BUY_BUTTON(By.xpath("//div [@class='buy-button sp valign-wrapper']")),
+    COUNTER_CART(By.xpath("//div [@class='counter counter-cart active']")),
+    TITLE_OF_PRODUCT(By.xpath("//div [@class='product-name']")),
+    TITLE_OF_PRODUCT_POPUP_CART(By.xpath("//div [@class='product-title sp']")),
+    CART_POPUP(By.xpath("//div [@class='order-cart']"));
 
 
-    private final String path;
+    private final By path;
 
-    ProductPageElement(String path) {
+    ProductPageElement(By path) {
         this.path = path;
     }
 
-    public By getXpath() {
-        return By.xpath(path);
+    public By getLocator() {
+        return path;
     }
 }

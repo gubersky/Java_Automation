@@ -1,4 +1,4 @@
-package rozetka.test;
+package rozetka_selenide.test;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;

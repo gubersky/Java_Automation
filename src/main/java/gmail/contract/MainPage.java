@@ -1,4 +1,4 @@
-package gmail.behavior;
+package gmail.contract;
 
 import org.openqa.selenium.By;
 import gmail.pages.LoginPage;

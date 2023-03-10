@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static gmail.locators.MainPageLocators.LOGIN_BUTTON;
 
-public class MainPage implements gmail.behavior.MainPage {
+public class MainPage implements gmail.contract.MainPage {
 
     private final WebDriver driver;
     private final WebDriverWait wait;
@@ -18,7 +18,7 @@ public class MainPage implements gmail.behavior.MainPage {
 
     @Override
     public LoginPage openLogin() {
-        driver.findElement(LOGIN_BUTTON.getXpath()).click();
+        driver.findElement(LOGIN_BUTTON.getLocator()).click();
         return new LoginPage(driver, wait);
     }
 

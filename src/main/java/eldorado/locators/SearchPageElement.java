@@ -6,17 +6,17 @@ import org.openqa.selenium.By;
 public enum SearchPageElement {
 
 
-    OPEN_PRODUCT_INFO("//div [@class='goods-item-content']"),
-    SEARCH_TOP("//div [@class='search-top']");
+    OPEN_PRODUCT_INFO(By.xpath("//div [@class='goods-item-content']")),
+    SEARCH_TOP(By.xpath("//div [@class='search-top']"));
 
 
-    private final String path;
+    private final By path;
 
-    SearchPageElement(String path) {
+    SearchPageElement(By path) {
         this.path = path;
     }
 
-    public By getXpath() {
-        return By.xpath(path);
+    public By getLocator() {
+        return path;
     }
 }

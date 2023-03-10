@@ -9,6 +9,6 @@ public class TestLogo extends TestBase {
 
     @Test(priority = 1)
     public void logoMainPage() {
-        Assert.assertTrue(mainPage.elementIsDisplayed(MAIN_LOGO.getXpath()));
+        Assert.assertTrue(app.basePage().elementIsDisplayed(MAIN_LOGO.getLocator()));
     }
 }

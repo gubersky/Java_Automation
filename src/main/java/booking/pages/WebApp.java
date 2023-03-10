@@ -1,11 +1,11 @@
 package booking.pages;
 
-import booking.behavior.MainPage;
-import booking.behavior.SearchPage;
+import booking.contract.MainPage;
+import booking.contract.SearchPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class WebApp implements booking.behavior.WebApp {
+public class WebApp implements booking.contract.WebApp {
 
     private WebDriver driver;
     private WebDriverWait wait;

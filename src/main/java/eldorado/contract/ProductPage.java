@@ -1,4 +1,4 @@
-package eldorado.behavior;
+package eldorado.contract;
 
 import org.openqa.selenium.By;
 

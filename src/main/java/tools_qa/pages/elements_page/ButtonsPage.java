@@ -6,11 +6,11 @@ import tools_qa.pages.BasePage;
 
 import static tools_qa.locators.ButtonsPageLocators.*;
 
-public class ButtonsPage extends BasePage {
+public class ButtonsPage extends BasePage implements tools_qa.contract.elements_page.ButtonsPage {
     public ButtonsPage(WebDriver driver, String url) {
         super(driver, url);
     }
-
+    @Override
     public String clickOnDifferentButton(String typeClick) {
 
         switch (typeClick) {
@@ -27,10 +27,9 @@ public class ButtonsPage extends BasePage {
                 return checkClickButton(CLICK_ME_MESSAGE.getLocator());
             }
         }
-
         return null;
     }
-
+    @Override
     public String checkClickButton(By locator) {
         return elementIsPresent(locator).getText();
 

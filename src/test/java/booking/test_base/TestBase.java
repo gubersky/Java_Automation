@@ -1,7 +1,6 @@
 package booking.test_base;
 
-import booking.pages.MainPage;
-import booking.pages.SearchPage;
+import booking.contract.WebApp;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -12,12 +11,11 @@ import org.testng.asserts.SoftAssert;
 import java.time.Duration;
 
 public class TestBase {
-
+    protected WebApp app;
     protected WebDriver driver;
     protected WebDriverWait wait;
-    protected MainPage mainPage;
-    protected SearchPage searchPage;
     protected SoftAssert softAssert;
+
 
     @BeforeMethod
     public void before() {
@@ -28,9 +26,7 @@ public class TestBase {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://www.booking.com");
 
-        mainPage = new MainPage(driver, wait);
-        searchPage = new SearchPage(driver, wait);
-        softAssert = new SoftAssert();
+        app = new booking.pages.WebApp(driver,wait);
     }
 
     @AfterTest

@@ -1,6 +1,5 @@
 package eldorado.test_base;
-
-import eldorado.pages.*;
+import eldorado.contract.WebApp;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,10 +12,7 @@ import java.time.Duration;
 public class TestBase {
     protected WebDriver driver;
     protected WebDriverWait wait;
-
-    protected MainPage mainPage;
-    protected SearchPage searchPage;
-    protected ProductPage productPage;
+    protected WebApp app;
     protected SoftAssert softAssert;
 
 
@@ -29,9 +25,7 @@ public class TestBase {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://eldorado.ua");
 
-        mainPage = new MainPage(driver, wait);
-        searchPage = new SearchPage(driver, wait);
-        productPage = new ProductPage(driver, wait);
+        app = new eldorado.pages.WebApp(driver,wait);
         softAssert = new SoftAssert();
     }
 

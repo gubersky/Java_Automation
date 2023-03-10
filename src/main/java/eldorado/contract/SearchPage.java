@@ -1,4 +1,4 @@
-package eldorado.behavior;
+package eldorado.contract;
 
 
 public interface SearchPage {

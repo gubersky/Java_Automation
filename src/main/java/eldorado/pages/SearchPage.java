@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static eldorado.locators.SearchPageElement.*;
 
-public class SearchPage extends BasePage implements eldorado.behavior.SearchPage {
+public class SearchPage extends BasePage implements eldorado.contract.SearchPage {
 
     private WebDriver driver;
     private WebDriverWait wait;
@@ -21,8 +21,8 @@ public class SearchPage extends BasePage implements eldorado.behavior.SearchPage
 
     @Override
     public ProductPage openProductInfo(int numberOfElement) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(SEARCH_TOP.getXpath()));
-        driver.findElements(OPEN_PRODUCT_INFO.getXpath()).get(numberOfElement).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(SEARCH_TOP.getLocator()));
+        driver.findElements(OPEN_PRODUCT_INFO.getLocator()).get(numberOfElement).click();
         return new ProductPage(driver, wait);
     }
 }

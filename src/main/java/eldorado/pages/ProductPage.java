@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static eldorado.locators.ProductPageElement.*;
 
-public class ProductPage extends BasePage implements eldorado.behavior.ProductPage {
+public class ProductPage extends BasePage implements eldorado.contract.ProductPage {
 
     private WebDriver driver;
     private WebDriverWait wait;
@@ -20,7 +20,7 @@ public class ProductPage extends BasePage implements eldorado.behavior.ProductPa
 
     @Override
     public ProductPage clickBuyProduct() {
-        driver.findElement(BUY_BUTTON.getXpath()).click();
+        driver.findElement(BUY_BUTTON.getLocator()).click();
         return this;
     }
 
@@ -31,6 +31,6 @@ public class ProductPage extends BasePage implements eldorado.behavior.ProductPa
 
     @Override
     public int counterCart() {
-        return Integer.parseInt(driver.findElement(COUNTER_CART.getXpath()).getText());
+        return Integer.parseInt(driver.findElement(COUNTER_CART.getLocator()).getText());
     }
 }

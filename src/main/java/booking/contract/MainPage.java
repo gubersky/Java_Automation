@@ -1,4 +1,4 @@
-package booking.behavior;
+package booking.contract;
 
 import org.openqa.selenium.By;
 

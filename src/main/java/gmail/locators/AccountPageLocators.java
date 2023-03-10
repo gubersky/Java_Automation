@@ -4,15 +4,15 @@ import org.openqa.selenium.By;
 
 public enum AccountPageLocators {
 
-    USER_LOGO("//a[@class='gb_A gb_La gb_f']");
+    USER_LOGO(By.xpath("//a[@class='gb_A gb_La gb_f']"));
 
-    private final String path;
+    private final By path;
 
-    AccountPageLocators(String path) {
+    AccountPageLocators(By path) {
         this.path = path;
     }
 
-    public By getXpath() {
-        return By.xpath(path);
+    public By getLocator() {
+        return path;
     }
 }

@@ -4,24 +4,21 @@ import org.openqa.selenium.By;
 
 public enum LoginPageLocators {
 
-    LOGIN_SCREEN("//div [@class='rhhJr']"),
-    LOGIN_FIELD("#identifierId"),
-    ACCOUNT_ALERT("//div[@class='o6cuMc']"),
-    PASSWORD_FIELD("#password"),
-    PASSWORD_ALERT("//div [@class='OyEIQ uSvLId']"),
-    NEXT_BUTTON("#identifierNext");
+    LOGIN_SCREEN(By.xpath("//div [@class='rhhJr']")),
+    LOGIN_FIELD(By.cssSelector("#identifierId")),
+    ACCOUNT_ALERT(By.xpath("//div[@class='o6cuMc']")),
+    PASSWORD_FIELD(By.cssSelector("#password")),
+    PASSWORD_ALERT(By.xpath("//div [@class='OyEIQ uSvLId']")),
+    NEXT_BUTTON(By.cssSelector("#identifierNext"));
 
-    private final String path;
+    private final By path;
 
-    LoginPageLocators(String path) {
+    LoginPageLocators(By path) {
         this.path = path;
     }
 
-    public By getXpath() {
-        return By.xpath(path);
+    public By getLocator() {
+        return path;
     }
 
-    public By getCss() {
-        return By.cssSelector(path);
-    }
 }

@@ -9,12 +9,12 @@ import static tools_qa.locators.RadioButtonPageLocators.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RadioButtonPage extends BasePage {
+public class RadioButtonPage extends BasePage implements tools_qa.contract.elements_page.RadioButtonPage {
 
     public RadioButtonPage(WebDriver driver, String url) {
         super(driver, url);
     }
-
+    @Override
     public void clickRadioButton(String choice) {
         Map<String, By> choices = new HashMap<>();
         choices.put("yes", YES_RADIOBUTTON.getLocator());
@@ -23,7 +23,7 @@ public class RadioButtonPage extends BasePage {
         elementIsVisible(choices.get(choice)).click();
 
     }
-
+    @Override
     public String getTextAlert() {
         return elementIsPresent(TEXT_ALERT.getLocator()).getText();
     }

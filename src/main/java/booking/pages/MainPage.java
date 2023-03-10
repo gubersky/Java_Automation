@@ -9,7 +9,7 @@ import static booking.locators.MainPageElement.*;
 
 import java.util.List;
 
-public class MainPage implements booking.behavior.MainPage {
+public class MainPage implements booking.contract.MainPage {
 
     private WebDriver driver;
     private WebDriverWait wait;

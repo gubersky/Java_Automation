@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class BasePage {
+public class BasePage implements eldorado.contract.BasePage {
 
     private WebDriver driver;
     private WebDriverWait wait;
@@ -14,7 +14,7 @@ public class BasePage {
         this.driver = driver;
         this.wait = wait;
     }
-
+    @Override
     public boolean elementIsDisplayed(By element) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
         return driver.findElement(element).isDisplayed();

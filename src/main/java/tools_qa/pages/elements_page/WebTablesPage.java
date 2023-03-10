@@ -9,20 +9,26 @@ import tools_qa.pages.BasePage;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WebTablesPage extends BasePage {
+public class WebTablesPage extends BasePage implements tools_qa.contract.elements_page.WebTablesPage {
+    Generator personInfo = new Generator();
+    String firstName;
+    String lastName;
+    String email;
+    String age;
+    String salary;
+    String department;
 
     public WebTablesPage(WebDriver driver, String url) {
         super(driver, url);
     }
-
+    @Override
     public List<String> addNewPerson() {
-        Generator personInfo = new Generator();
-        String firstName = personInfo.generatePerson("firstName");
-        String lastName = personInfo.generatePerson("lastName");
-        String email = personInfo.generatePerson("email");
-        String age = personInfo.generatePerson("age");
-        String salary = personInfo.generatePerson("salary");
-        String department = personInfo.generatePerson("department");
+         firstName = personInfo.generatePerson("firstName");
+         lastName = personInfo.generatePerson("lastName");
+         email = personInfo.generatePerson("email");
+         age = personInfo.generatePerson("age");
+         salary = personInfo.generatePerson("salary");
+         department = personInfo.generatePerson("department");
 
         elementIsVisible(ADD_BUTTON.getLocator()).click();
         elementIsVisible(FIRST_NAME.getLocator()).sendKeys(firstName);
@@ -35,7 +41,7 @@ public class WebTablesPage extends BasePage {
 
         return List.of(firstName, lastName, age, email, salary, department);
     }
-
+    @Override
     public List<List<String>> checkAddPerson() {
         List<WebElement> personList = elementsArePresent(ADD_PERSON_LIST.getLocator());
         List<List<String>> data = new ArrayList<>();
@@ -44,27 +50,26 @@ public class WebTablesPage extends BasePage {
         }
         return data;
     }
-
+    @Override
     public void searchSomePerson(String keyWord) {
         goToElement(elementIsVisible(SEARCH_FIELD.getLocator()));
         elementIsVisible(SEARCH_FIELD.getLocator()).sendKeys(keyWord);
 
     }
-
+    @Override
     public List<String> checkSearchPerson() {
         WebElement deleteButton = elementIsPresent(DELETE_BUTTON.getLocator())
                 .findElement(By.xpath(".//ancestor::div[@class='rt-tr-group']"));
         return List.of(deleteButton.getText().split("\n"));
     }
-
+    @Override
     public String editPersonInfo() {
-        Generator personInfo = new Generator();
-        String firstName = personInfo.generatePerson("firstName");
-        String lastName = personInfo.generatePerson("lastName");
-        String email = personInfo.generatePerson("email");
-        String age = personInfo.generatePerson("age");
-        String salary = personInfo.generatePerson("salary");
-        String department = personInfo.generatePerson("department");
+        firstName = personInfo.generatePerson("firstName");
+        lastName = personInfo.generatePerson("lastName");
+        email = personInfo.generatePerson("email");
+        age = personInfo.generatePerson("age");
+        salary = personInfo.generatePerson("salary");
+        department = personInfo.generatePerson("department");
         String[] listInfo = {firstName, lastName, email, age, salary, department};
         By[] listLocators = {FIRST_NAME.getLocator(), LAST_NAME.getLocator(), EMAIL.getLocator(),
                 AGE.getLocator(), SALARY.getLocator(), DEPARTMENT.getLocator()};
@@ -76,15 +81,15 @@ public class WebTablesPage extends BasePage {
         return listInfo[chooseField];
 
     }
-
+    @Override
     public void deletePerson() {
         elementIsPresent(DELETE_BUTTON.getLocator()).click();
     }
-
+    @Override
     public String checkDeletePerson() {
         return elementIsPresent(ALERT_NO_ROWS_FOUND.getLocator()).getText();
     }
-
+    @Override
     public List<Integer> selectTableRow() {
         removeFooter();
         removeFixedBan();
@@ -100,7 +105,7 @@ public class WebTablesPage extends BasePage {
         return data;
 
     }
-
+    @Override
     public int countRows() {
         List<WebElement> list_rows = elementsArePresent(ADD_PERSON_LIST.getLocator());
         return list_rows.size();

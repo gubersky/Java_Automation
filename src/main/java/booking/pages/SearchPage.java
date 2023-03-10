@@ -10,7 +10,7 @@ import static booking.locators.SearchPageElement.*;
 import java.util.List;
 
 
-public class SearchPage implements booking.behavior.SearchPage {
+public class SearchPage implements booking.contract.SearchPage {
 
     private WebDriver driver;
     private WebDriverWait wait;

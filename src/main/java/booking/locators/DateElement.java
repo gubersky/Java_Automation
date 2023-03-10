@@ -13,7 +13,6 @@ public enum DateElement {
     PICK_DATE_2022_12_30(By.xpath("//td [contains(@data-date, '2022-12-30')]")),
     GET_MONTH_DATE(By.xpath("//div [@class='bui-calendar__month']"));
 
-
     private final By path;
 
     DateElement(By path) {
