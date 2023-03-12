@@ -11,12 +11,12 @@ import java.util.List;
 
 public class WebTablesPage extends BasePage implements tools_qa.contract.elements_page.WebTablesPage {
     Generator personInfo = new Generator();
-    String firstName;
-    String lastName;
-    String email;
-    String age;
-    String salary;
-    String department;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String age;
+    private String salary;
+    private String department;
 
     public WebTablesPage(WebDriver driver, String url) {
         super(driver, url);

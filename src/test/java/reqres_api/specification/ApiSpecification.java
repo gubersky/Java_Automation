@@ -1,4 +1,4 @@
-package api.api_base;
+package reqres_api.specification;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
@@ -7,7 +7,7 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
-public class ApiSpec {
+public class ApiSpecification {
 
     public static RequestSpecification requestSpec(String url) {
         return new RequestSpecBuilder()
