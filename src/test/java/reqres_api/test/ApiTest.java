@@ -1,5 +1,6 @@
 package reqres_api.test;
 
+import reqres_api.pojo.CreateUserData;
 import reqres_api.pojo.SendUserData;
 import reqres_api.specification.ApiSpecification;
 import reqres_api.pojo.ResponseUserData;
@@ -20,7 +21,6 @@ public class ApiTest {
         String checkText = "To keep ReqRes free, contributions towards server costs are appreciated!";
 
         ApiSpecification.installSpec(ApiSpecification.requestSpec(URL), ApiSpecification.responseSpec(200));
-
         ResponseUserData responseUserData = given()
                 .when()
                 .get(getUri)
@@ -29,7 +29,6 @@ public class ApiTest {
                 .getObject("support", ResponseUserData.class);
 
         Assert.assertEquals(responseUserData.getText(), checkText);
-
     }
 
     @Test
@@ -37,7 +36,6 @@ public class ApiTest {
         String getUri = "/api/users/23";
 
         ApiSpecification.installSpec(ApiSpecification.requestSpec(URL), ApiSpecification.responseSpec(404));
-
         given()
                 .when()
                 .get(getUri)
@@ -48,15 +46,17 @@ public class ApiTest {
     public void testListUsers() {
         String getUri = "/api/users?page=2";
         String checkAvatar = "https://reqres.in/img/faces/%d-image.jpg";
-        ApiSpecification.installSpec(ApiSpecification.requestSpec(URL),
-                ApiSpecification.responseSpec(200));
+        String checkEmail = "%s.%s@reqres.in";
+        ApiSpecification.installSpec(ApiSpecification.requestSpec(URL), ApiSpecification.responseSpec(200));
         List<ResponseUserData> userData = given()
                 .when()
                 .get(getUri)
                 .then().log().all()
                 .extract().body().jsonPath().getList("data", ResponseUserData.class);
+
         userData.forEach(x -> Assert.assertEquals(String.format(checkAvatar, x.getId()), x.getAvatar()));
-        Assert.assertTrue(userData.stream().allMatch(x -> x.getEmail().endsWith("@reqres.in")));
+        userData.forEach(x -> Assert.assertEquals(String.format(checkEmail, x.getFirst_name().toLowerCase(),
+                x.getLast_name().toLowerCase()), x.getEmail()));
     }
 
     @Test
@@ -87,6 +87,7 @@ public class ApiTest {
         String postUri = "/api/register";
         String postEmail = "sydney@fife";
         String checkError = "Missing password";
+
         ApiSpecification.installSpec(ApiSpecification.requestSpec(URL), ApiSpecification.responseSpec(400));
         SendUserData sendUserData = new SendUserData(postEmail);
         ResponseUserData responseUserData = given()
@@ -95,6 +96,7 @@ public class ApiTest {
                 .post(postUri)
                 .then().log().all()
                 .extract().as(ResponseUserData.class);
+
         Assert.assertNotNull(responseUserData.getError());
         Assert.assertEquals(responseUserData.getError(), checkError);
     }
@@ -102,24 +104,49 @@ public class ApiTest {
     @Test
     public void testListResource() {
         String getUri = "/api/unknown";
+
         ApiSpecification.installSpec(ApiSpecification.requestSpec(URL), ApiSpecification.responseSpec(200));
         List<ResponseUserData> responseUserData = given()
                 .when()
                 .get(getUri)
                 .then().log().all()
                 .extract().body().jsonPath().getList("data", ResponseUserData.class);
+
         List<String> actualYears = responseUserData.stream().map(ResponseUserData::getYear).toList();
         List<String> expectedYears = actualYears.stream().sorted().toList();
+
         Assert.assertEquals(actualYears, expectedYears);
     }
 
     @Test
     public void testDelete() {
         String deleteUri = "/api/users/2";
+
         ApiSpecification.installSpec(ApiSpecification.requestSpec(URL), ApiSpecification.responseSpec(204));
         given()
                 .when()
                 .delete(deleteUri)
                 .then().log().all();
+    }
+
+    @Test
+    public void testCreate() {
+        String postUri = "/api/users";
+        String postName = "morpheus";
+        String postJob = "leader";
+
+        ApiSpecification.installSpec(ApiSpecification.requestSpec(URL), ApiSpecification.responseSpec(201));
+        CreateUserData createUserData = new CreateUserData(postName, postJob);
+
+        ResponseUserData responseUserData = given()
+                .body(createUserData)
+                .when()
+                .post(postUri)
+                .then().log().all()
+                .extract().as(ResponseUserData.class);
+
+        Assert.assertEquals(responseUserData.getName(), postName);
+        Assert.assertEquals(responseUserData.getJob(), postJob);
+        Assert.assertEquals(responseUserData.getId().toString().length(), 3);
     }
 }

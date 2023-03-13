@@ -2,6 +2,8 @@ package reqres_api.pojo;
 
 public class ResponseUserData {
     private Integer id;
+    private String createdAt;
+    private String job;
     private String url;
     private String text;
     private String year;
@@ -15,10 +17,12 @@ public class ResponseUserData {
     private String avatar;
     private String error;
 
-    public ResponseUserData(Integer id, String url, String text, String year, String name, String color,
-                            String pantoneValue, String token, String email, String firstName, String lastName,
-                            String avatar, String error) {
+    public ResponseUserData(Integer id, String createdAt, String job, String url, String text, String year, String name,
+                            String color, String pantoneValue, String token, String email, String firstName,
+                            String lastName, String avatar, String error) {
         this.id = id;
+        this.createdAt = createdAt;
+        this.job = job;
         this.url = url;
         this.text = text;
         this.year = year;
@@ -139,5 +143,21 @@ public class ResponseUserData {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public String getJob() {
+        return job;
+    }
+
+    public void setJob(String job) {
+        this.job = job;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 }
